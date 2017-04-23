@@ -1,8 +1,8 @@
-#Alexa & Watson Skill
+# Alexa & Watson Skill
 Create Amazon Alexa skill with using IBM Bluemix OpenWhisk to host the server actions and IBM Watson Tone Analyzer to Analyze the user tone.
 The skill is designed to Analyze the user voice and respond with the tone of the text where it's Angry, Sad or Happy.
 
-##Requirements 
+## Requirements 
 1. Amazon Developer Account 
 1. Alexa Device (Optional)
 1. IBM Bluemix account. [Sign up](https://console.ng.bluemix.net/registration/?target=%2Fdashboard%2Fapps) for Bluemix, or use an existing account.
@@ -10,7 +10,7 @@ The skill is designed to Analyze the user voice and respond with the tone of the
 - TODO image here
 
 
-###Getting Started
+### Getting Started
 Follow the steps below to create an Alexa skill, create the backend using IBM Bluemix OpenWhisk and use the Watson Tone service to analyze the voice input.
 
 1. Create A Skill  
@@ -50,7 +50,7 @@ Login to the Amazon developer console, go to Skills -> Alexa Skill Kit (Get Star
 
 Next, under the **Configuration**, we will call the server side action api to link the skill to the backend. For that we will be using IBM Bluemix OpenWhisk to create the Action then expose the action as an API.
 
-###Setting up OpenWhisk and Tone Analyzer service 
+### Setting up OpenWhisk and Tone Analyzer service 
 
 1. Clone or fork the repository 
 1. Check out the code
@@ -88,7 +88,7 @@ Next, under the **SSL Certificate**, select the `My development endpoint is a su
 
 Done! 
 
-###Testing
+### Testing
 Test the skill by adding this text to the "Enter Utterance" text filed area:  
 `Alexa analyze the tone of this email, ok fine, I will look into the issue but dont call me again`
 
