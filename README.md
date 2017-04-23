@@ -82,7 +82,7 @@ Next, under the **Configuration**, we will call the server side action api to li
     ok: created API /alexaWatson/api/v1 POST for action /_/alexaAndWatson
     https://b4651037-d05a-4b7d-ab46-1e9a1abc096f-gws.api-gw.mybluemix.net/alexaWatson/api/v1
     ```
-    ![](images/image2.png)
+    ![](images/image1.png)
 
 Next, under the **SSL Certificate**, select the `My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority` option.
 
