@@ -1,25 +1,28 @@
 # Alexa & Watson Skill
-Create Amazon Alexa skill with using IBM Bluemix OpenWhisk to host the server actions and IBM Watson Tone Analyzer to Analyze the user tone.
-The skill is designed to Analyze the user voice and respond with the tone of the text where it's Angry, Sad or Happy.
+Create Amazon Alexa skill that uses IBM Bluemix OpenWhisk to host the backend actions and IBM Watson Tone Analyzer to provide Alexa users with Quote where they are happy, sad, fear ect.
+The skill is designed to give users a list of quotes where a user can ask things like:
+> Alexa ask watson to play a random  
+> Alexa ask watson to play a happy quote
+
+If a happy quote is requested by Alexa then the Watson Tone Analyzer is used to find and play a quote where it has highest happy tone.
 
 ## Requirements 
-1. Amazon Developer Account 
+1. [Amazon Developer Account](https://developer.amazon.com)
 1. Alexa Device (Optional)
 1. IBM Bluemix account. [Sign up](https://console.ng.bluemix.net/registration/?target=%2Fdashboard%2Fapps) for Bluemix, or use an existing account.
-
-- TODO image here
+![](images/dig.png)
 
 
 ### Getting Started
-Follow the steps below to create an Alexa skill, create the backend using IBM Bluemix OpenWhisk and use the Watson Tone service to analyze the voice input.
+Follow the steps below to create an Alexa skill, create the backend using IBM Bluemix OpenWhisk and use the Watson Tone to find a quote based on the user request.
 
 1. Create A Skill  
 Login to the Amazon developer console, go to Skills -> Alexa Skill Kit (Get Started) -> Add a new skill.
 
 1. Give the skill a name: `Alexa & Watson`  
 
-1. Give the skill an invocation name: `analyze`  
-    Invocation Name is what a user would speak into the Alexa device, for example I would say something like, Alexa analyze the tone of this email, `ok fine, I will look into the issue but dont call me again`.)
+1. Give the skill an invocation name: `watson`  
+    Invocation Name is what a user would speak into the Alexa device, for example I would say something like `Alexa ask watson to play a happy quote`
  
 1. Next, under the **Interaction Model**, add the following:  
     *-> Intent Schema*   
@@ -27,7 +30,10 @@ Login to the Amazon developer console, go to Skills -> Alexa Skill Kit (Get Star
     {
       "intents": [
         {
-          "intent": "analyzeTone"
+          "intent": "randomQuote"
+        },
+        {
+          "intent": "happyQuote"
         }
       ]
     }
@@ -41,10 +47,11 @@ Login to the Amazon developer console, go to Skills -> Alexa Skill Kit (Get Star
 
     *-> Sample Utterances*  
     ```
-    analyzeTone analyze this email
-    analyzeTone analyze this for me 
-    analyzeTone how this sounds like 
-    analyzeTone how this sounds like    
+    randomQuote watson to play a random quote
+    randomQuote watson for a random quote
+    
+    happyQuote watson to play a happy quote
+    happyQuote watson to for a happy quote   
     ```
     > Note: sample Utterances is a way to map words to the intents.
 
@@ -65,7 +72,7 @@ Next, under the **Configuration**, we will call the server side action api to li
     ```
     cf create-service tone_analyzer standard alexaAnalyzer
     ```
-1. Obtain your Tone Analyzer credentials, from your Bluemix console under the service created you should be able to get the Service credentials.
+1. Obtain your Tone Analyzer credentials, from your [Bluemix console](https://console.ng.bluemix.net) under the service created you should be able to get the Service credentials.
 1. Modify the action.js file by adding your Tone Analyzer username and password. 
 1. Create OpenWhisk Action 
     ```
@@ -73,12 +80,11 @@ Next, under the **Configuration**, we will call the server side action api to li
     ```
 1. Expose your OpenWhisk Action as an API using:
     ```
-    wsk api-experimental create /alexaWatson /api/v1 post alexaAndWatson --annotation web-export true
+    wsk api-experimental wsk api-experimental create /alexaWatson /api/v1 post alexaAndWatson --annotation web-export true
     ```
 1. Copy the API endpoint in your console and past into the Amazon Alexa API filed, see image below. 
     You should see something like: 
     ```
-    Twanas-MacBook-Pro:alexaAndWatson Work$ wsk api-experimental create /alexaWatson /api/v1 post alexaAndWatson --annotation web-export true
     ok: created API /alexaWatson/api/v1 POST for action /_/alexaAndWatson
     https://b4651037-d05a-4b7d-ab46-1e9a1abc096f-gws.api-gw.mybluemix.net/alexaWatson/api/v1
     ```
@@ -90,17 +96,26 @@ Done!
 
 ### Testing
 Test the skill by adding this text to the "Enter Utterance" text filed area:  
-`Alexa analyze the tone of this email, ok fine, I will look into the issue but dont call me again`
+> Alexa ask watson to play a random   
+> Alexa ask watson to play a happy quote
 
 **Output**: "0.624516% chances that the tone of this text is in the category of: Anger". 
 
 - TODO Video showing this
 
 
+
+
+### Additional information  
+- [IBM Bluemix OpenWhisk site](https://console.ng.bluemix.net/openwhisk/)  
+- [IBM Bluemix OpenWhisk keynote](keynote/OpenWhisk.key)  
+- [OpenWhisk Form Processing](https://github.com/IBM-Bluemix/openwhisk-contact)  
+- [More IBM Bluemix OpenWhisk Samples](https://ibm-bluemix.github.io/#!/)  
+
+
 ----
 
 ## Tone Analyzer JSON Output
-- TODO update this output
 ```
 {
     "document_tone": {
@@ -205,7 +220,6 @@ Test the skill by adding this text to the "Enter Utterance" text filed area:
 
 
 ## License
-
 See [License.txt](License.txt) for license information.
 
 ---
