@@ -92,17 +92,19 @@ Next, under the **Configuration**, we will call the server side action api to li
 
 Next, under the **SSL Certificate**, select the `My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority` option.
 
-Done! 
 
 ### Testing
 Test the skill by adding this text to the "Enter Utterance" text filed area:  
 > Alexa ask watson to play a random   
 > Alexa ask watson to play a happy quote
 
-**Output**: "0.624516% chances that the tone of this text is in the category of: Anger". 
+**Output**: "Here is a happy Quote that I found for you: happy wife means happy life". 
 
-- TODO Video showing this
+[![Play Video](images/video.png)](https://www.youtube.com/watch?v=PTMGKLULOeE)
 
+**Done...**
+
+----
 
 
 
