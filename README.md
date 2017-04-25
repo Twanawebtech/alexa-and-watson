@@ -1,4 +1,4 @@
-# Alexa & Watson Skill
+# Amazon Alexa Skills using OpenWhisk and Watson 
 Create Amazon Alexa skill that uses IBM Bluemix OpenWhisk to host the backend actions and IBM Watson Tone Analyzer analyse an array of objects. With this in place, the user can play quotes that are happy, sad, fear ect.
 A user can ask things like:
 > Alexa ask watson to play a random  
