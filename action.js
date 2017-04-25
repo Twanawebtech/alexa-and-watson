@@ -1,8 +1,8 @@
 var watson = require('watson-developer-cloud');
 // To create your Watson Tone Analyzer keys, head over to Bluemix and create the Tone Analyzer service
 var tone_analyzer = watson.tone_analyzer({
-    username: '<username>',
-    password: '<password>',
+    username: '4c792a31-1eaa-49ab-aeb5-c9b6cbb01fe1',
+    password: 'bm3jD5yAjsHF',
     version: 'v3',
     version_date: '2016-05-19'
 });

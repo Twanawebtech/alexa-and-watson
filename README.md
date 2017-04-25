@@ -1,10 +1,11 @@
 # Alexa & Watson Skill
-Create Amazon Alexa skill that uses IBM Bluemix OpenWhisk to host the backend actions and IBM Watson Tone Analyzer to provide Alexa users with Quote where they are happy, sad, fear ect.
-The skill is designed to give users a list of quotes where a user can ask things like:
+Create Amazon Alexa skill that uses IBM Bluemix OpenWhisk to host the backend actions and IBM Watson Tone Analyzer analyse an array of objects. With this in place, the user can play quotes that are happy, sad, fear ect.
+A user can ask things like:
 > Alexa ask watson to play a random  
 > Alexa ask watson to play a happy quote
+> Alexa ask watson for a happy quote
 
-If a happy quote is requested by Alexa then the Watson Tone Analyzer is used to find and play a quote where it has highest happy tone.
+If a happy quote is requested then Watson Tone Analyzer is used to find and play a quote where it has highest happy/Joy score.
 
 ## Requirements 
 1. [Amazon Developer Account](https://developer.amazon.com)
